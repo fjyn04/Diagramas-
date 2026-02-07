@@ -1,0 +1,62 @@
+!include https://raw.githubusercontent.com/plantuml-stdlib/Cicon-PlantUML/master/Cicon-Common.puml
+
+left to right direction
+
+actor Usuario as U
+actor Administrador as A
+actor Cliente as C
+actor Proveedor as P
+
+rectangle "HOGARSYS Sistema" {
+  (Iniciar sesión) as IS
+  (Registrar usuario) as RU
+  (Recuperar contraseña) as RC
+
+  (Ver pantalla de bienvenida) as VW
+  (Ver Dashboard) as VD
+  (Acceder módulo) as AM
+  (Configurar preferencias) as CP
+
+  (Gestionar inventario) as GI
+  (Gestionar ventas) as GV
+  (Gestionar clientes) as GC
+  (Gestionar personal) as GPE
+  (Gestionar proveedores) as GP
+  (Gestionar compras) as GCO
+  (Generar reporte) as GR
+  (Realizar cierre) as CI
+
+  C --> (Registrarse)
+  C --> (Consultar perfil cliente)
+  C --> (Pagar deuda)
+
+  P --> (Registrarse)
+  P --> (Consultar pedidos)
+}
+
+U --> IS
+U --> VW
+U --> VD
+U --> AM
+U --> RC
+U --> CP
+U --> GI
+U --> GV
+U --> GC
+U --> GR
+U --> CI
+
+A --> RU
+A --> GPE
+A --> GP
+A --> GCO
+A --> CP
+
+AM --> GI
+AM --> GV
+AM --> GC
+AM --> GPE
+AM --> GP
+AM --> GCO
+AM --> GR
+AM --> CI
